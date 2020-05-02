@@ -1,6 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
+
+using TingTingOS.Utils;
 using Sys = Cosmos.System;
 
 namespace TingTingOS
@@ -9,15 +9,26 @@ namespace TingTingOS
     {
         protected override void BeforeRun()
         {
-            Console.WriteLine("Cosmos booted successfully. Type a line of text to get it echoed back.");
+            Power.Init();
+
+            ColorConsole.WriteLine(ConsoleColor.Yellow, "TingTingOS booted successfully");
+            ColorConsole.WriteLine(ConsoleColor.Yellow, "Press any key to continue");
+
+            if (Console.ReadKey().Key != ConsoleKey.Escape)
+            {
+                Console.Clear();
+            }
+            else
+            {
+                Power.Shutdown();
+            }
         }
 
         protected override void Run()
         {
-            Console.Write("Input: ");
+            ColorConsole.Write(ConsoleColor.White, "$ ");
             var input = Console.ReadLine();
-            Console.Write("Text typed: ");
-            Console.WriteLine(input);
+            ColorConsole.WriteLine(ConsoleColor.Green, input);
         }
     }
 }
