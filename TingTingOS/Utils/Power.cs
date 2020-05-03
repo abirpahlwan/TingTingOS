@@ -9,8 +9,8 @@ namespace TingTingOS.Utils
         public static void Init()
         {
             Console.Clear();
-            ColorConsole.WriteLine(ConsoleColor.DarkGreen, "TingTingOS v" + Reference.Version);
-            Console.WriteLine("");
+            ColorConsole.WriteLine(ConsoleColor.Green, "TingTingOS v" + Reference.Version);
+            Console.WriteLine();
         }
 
         public static void Shutdown()
