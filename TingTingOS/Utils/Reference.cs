@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace TingTingOS.Utils
+﻿namespace TingTingOS.Utils
 {
     public static class Reference
     {
@@ -11,9 +7,11 @@ namespace TingTingOS.Utils
         public static string RootPath = @"0:\";
         public static string CurrentDir = RootPath;
 
-        public static string DefaultAccess = "$"; // Means the user has root (or admin) permissions
-        public static string RootAccess = "#"; // Means the user has root (or admin) permissions
+        public static string DefaultAccessPrefix = "$ ";
+        public static string RootAccessPrefix = "# ";
 
-        public static bool Installed;
+        public static bool IsInstalled;
+
+        public static Accounts.Account UserAccount = null;
     }
 }
