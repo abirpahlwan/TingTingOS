@@ -27,8 +27,6 @@ namespace TingTingOS
 
         protected override void Run()
         {
-            ColorConsole.WriteLine(ConsoleColor.Yellow, "Login to your user account.");
-
         Login:
             ColorConsole.Write(ConsoleColor.White, "Username");
             ColorConsole.Write(ConsoleColor.White, ": ");
@@ -41,16 +39,20 @@ namespace TingTingOS
             if (AccountManager.Exist(user) && AccountManager.GetPassword(user, true).Equals(pass))
             {
                 Reference.UserAccount = new Account(user, pass);
-                // CmdMan.Init();
-                while (true)
-                {
-                    EchoTest();
-                }
+
+                goto Terminal;
             }
             else
             {
-                ColorConsole.WriteLine(ConsoleColor.Red, "Login failed. Try again.");
+                ColorConsole.WriteLine(ConsoleColor.Red, "Login failed");
+
                 goto Login;
+            }
+
+        Terminal:
+            while (true)
+            {
+               CommandManager.Init();
             }
         }
 
