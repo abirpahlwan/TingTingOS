@@ -13,9 +13,9 @@ namespace TingTingOS
     {
         protected override void BeforeRun()
         {
-            LoadFileSystem();
+            FileSystem.LoadFileSystem();
 
-            ShowWelcomeMessage();
+            Power.ShowWelcomeMessage();
 
             if (!File.Exists(Reference.RootPath + "Installed.txt"))
             {
@@ -52,32 +52,6 @@ namespace TingTingOS
                 ColorConsole.WriteLine(ConsoleColor.Red, "Login failed. Try again.");
                 goto Login;
             }
-        }
-
-        void LoadFileSystem()
-        {
-            ColorConsole.WriteLine(ConsoleColor.Yellow, "Loading virtual file system...");
-            Sys.FileSystem.VFS.VFSManager.RegisterVFS(Reference.FAT);
-
-            if (Reference.FAT.GetVolumes().Count > 0)
-            {
-                ColorConsole.WriteLine(ConsoleColor.Green, "Sucessfully loaded the virtual file system.");
-            }
-            else
-            {
-                ColorConsole.WriteLine(ConsoleColor.Red, "Couldn't load the virtual file system...");
-            }
-
-            Console.WriteLine();
-        }
-
-        void ShowWelcomeMessage()
-        {
-            ColorConsole.WriteLine(ConsoleColor.Yellow, "TingTingOS booted successfully.");
-            ColorConsole.WriteLine(ConsoleColor.Yellow, "Press any key to continue...");
-            Console.ReadKey();
-
-            Console.WriteLine();
         }
 
         void EchoTest()
