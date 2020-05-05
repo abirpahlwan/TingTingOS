@@ -16,7 +16,7 @@ namespace TingTingOS.Programs
             Commands:
                 ColorConsole.Write(ConsoleColor.Green, Reference.UserAccount.GetUsername());
                 ColorConsole.Write(ConsoleColor.White, ":");
-                ColorConsole.Write(ConsoleColor.Blue, Directory.GetCurrentDirectory());    // TODO Double check this
+                ColorConsole.Write(ConsoleColor.Cyan, Reference.CurrentDir);
                 ColorConsole.Write(ConsoleColor.White, Reference.DefaultAccessPrefix);
 
                 string input = Console.ReadLine();

@@ -42,13 +42,13 @@ namespace TingTingOS.Accounts
 
             if (!Directory.Exists(Reference.RootPath + "Accounts"))
             {
-                ColorConsole.WriteLine(ConsoleColor.Red, "This account doesn't exist.");
+                ColorConsole.WriteLine(ConsoleColor.Red, "This account doesn't exist");
                 return false;
             }
 
             if (!File.Exists(accountPath))
             {
-                ColorConsole.WriteLine(ConsoleColor.Red, "This account doesn't exist.");
+                ColorConsole.WriteLine(ConsoleColor.Red, "This account doesn't exist");
                 return false;
             }
 

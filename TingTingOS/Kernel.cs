@@ -28,12 +28,10 @@ namespace TingTingOS
         protected override void Run()
         {
         Login:
-            ColorConsole.Write(ConsoleColor.White, "Username");
-            ColorConsole.Write(ConsoleColor.White, ": ");
+            ColorConsole.Write(ConsoleColor.White, "Username: ");
             string user = Console.ReadLine();
 
-            ColorConsole.Write(ConsoleColor.White, "Password");
-            ColorConsole.Write(ConsoleColor.White, ": ");
+            ColorConsole.Write(ConsoleColor.White, "Password: ");
             string pass = Console.ReadLine();
 
             if (AccountManager.Exist(user) && AccountManager.GetPassword(user, true).Equals(pass))
@@ -50,6 +48,8 @@ namespace TingTingOS
             }
 
         Terminal:
+            Power.Init();
+
             while (true)
             {
                CommandManager.Init();
@@ -60,7 +60,7 @@ namespace TingTingOS
         {
             ColorConsole.Write(ConsoleColor.White, Reference.DefaultAccessPrefix);
             var input = Console.ReadLine();
-            ColorConsole.WriteLine(ConsoleColor.Magenta, input);
+            ColorConsole.WriteLine(ConsoleColor.White, input);
         }
     }
 }

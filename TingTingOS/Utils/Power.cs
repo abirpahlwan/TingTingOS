@@ -27,11 +27,9 @@ namespace TingTingOS.Utils
 
         public static void ShowWelcomeMessage()
         {
-            ColorConsole.WriteLine(ConsoleColor.Yellow, "TingTingOS booted successfully.");
+            ColorConsole.WriteLine(ConsoleColor.Yellow, "TingTingOS booted successfully");
             ColorConsole.WriteLine(ConsoleColor.Yellow, "Press any key to continue...");
             Console.ReadKey();
-
-            Console.WriteLine();
         }
     }
 }

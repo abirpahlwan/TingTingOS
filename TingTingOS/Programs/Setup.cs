@@ -14,26 +14,27 @@ namespace TingTingOS.Programs
             Console.Clear();
 
             ColorConsole.WriteLine(ConsoleColor.Yellow, "Initiating setup...");
+            Console.WriteLine();
 
+            ColorConsole.WriteLine(ConsoleColor.Yellow, "Create your user account");
+            Console.WriteLine();
 
-            ColorConsole.WriteLine(ConsoleColor.Yellow, "Create your user account.");
-
-            ColorConsole.Write(ConsoleColor.White, "Username");
-            ColorConsole.Write(ConsoleColor.White, ": ");
+            ColorConsole.Write(ConsoleColor.White, "Username: ");
             string user = Console.ReadLine();
 
-            ColorConsole.Write(ConsoleColor.White, "Password");
-            ColorConsole.Write(ConsoleColor.White, ": ");
+            ColorConsole.Write(ConsoleColor.White, "Password: ");
             string pass = Console.ReadLine();
 
             ColorConsole.WriteLine(ConsoleColor.Yellow, "Creating user account...");
             Reference.UserAccount = new Account(user, pass);
             Reference.UserAccount.CreateAccount();
+            Console.WriteLine();
 
             ColorConsole.WriteLine(ConsoleColor.Yellow, "Finishing installation...");
             File.WriteAllText(Reference.RootPath + "Installed.txt", "IsInstalled:True");
+            Console.WriteLine();
 
-            ColorConsole.WriteLine(ConsoleColor.Yellow, "Press any key to restart...");
+            ColorConsole.Write(ConsoleColor.Yellow, "Press any key to restart...");
             Console.ReadKey();
 
             Power.Restart();

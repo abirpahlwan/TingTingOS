@@ -47,7 +47,8 @@ namespace TingTingOS.Accounts
             if (!File.Exists(accountPath))
             {
                 File.WriteAllText(accountPath, name + ":" + password);
-                ColorConsole.WriteLine(ConsoleColor.Green, "Account created for " + name + ".");
+
+                ColorConsole.WriteLine(ConsoleColor.Green, "Account created for " + name);
             }
             else
             {
