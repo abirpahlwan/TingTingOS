@@ -15,8 +15,8 @@ namespace TingTingOS.Programs
             {
             Commands:
                 ColorConsole.Write(ConsoleColor.Green, Reference.UserAccount.GetUsername());
-                ColorConsole.Write(ConsoleColor.White, ":");
-                ColorConsole.Write(ConsoleColor.Cyan, Reference.CurrentDir);
+                ColorConsole.Write(ConsoleColor.White, ">");
+                ColorConsole.Write(ConsoleColor.Cyan, Reference.CurrentDirectory);
                 ColorConsole.Write(ConsoleColor.White, Reference.DefaultAccessPrefix);
 
                 string input = Console.ReadLine();
@@ -26,16 +26,16 @@ namespace TingTingOS.Programs
                 {
                     // TODO Refactor all the commands
                     case "cd":
-                        string newDir = input.Split(" ")[1];
-                        if (Directory.Exists(newDir))
+                        string newDirectory = input.Split(" ")[1];
+                        if (Directory.Exists(newDirectory))
                         {
-                            if (newDir.Contains(Reference.RootPath))
+                            if (newDirectory.Contains(Reference.RootPath))
                             {
-                                Reference.CurrentDir = newDir;
+                                Reference.CurrentDirectory = newDirectory;
                             }
                             else
                             {
-                                Reference.CurrentDir += newDir;
+                                Reference.CurrentDirectory += newDirectory;
                             }
                         }
                         else
@@ -46,13 +46,13 @@ namespace TingTingOS.Programs
                         break;
 
                     case "ls":
-                        string[] directories = Directory.GetDirectories(Reference.CurrentDir);
+                        string[] directories = Directory.GetDirectories(Reference.CurrentDirectory);
                         for (int i = 0; i < directories.Length; i++)
                         {
                             ColorConsole.WriteLine(ConsoleColor.Cyan, directories[i]);
                         }
 
-                        string[] files = Directory.GetFiles(Reference.CurrentDir);
+                        string[] files = Directory.GetFiles(Reference.CurrentDirectory);
                         for (int i = 0; i < files.Length; i++)
                         {
                             ColorConsole.WriteLine(ConsoleColor.Cyan, files[i]);
@@ -84,10 +84,10 @@ namespace TingTingOS.Programs
                         break;
 
                     case "rmdir":
-                        string directory = input.Split(" ")[1];
-                        if (Directory.Exists(directory))
+                        string deleteDirectory = input.Split(" ")[1];
+                        if (Directory.Exists(deleteDirectory))
                         {
-                            Directory.Delete(directory, true);
+                            Directory.Delete(deleteDirectory, true);
                         }
                         else
                         {
@@ -111,6 +111,11 @@ namespace TingTingOS.Programs
                         {
                             ColorConsole.WriteLine(ConsoleColor.Red, "The source directory/file doesn't exist");
                         }
+
+                        break;
+
+                    case "textpad":
+                        Textpad.Run(input.Split(" ")[1]);
 
                         break;
 

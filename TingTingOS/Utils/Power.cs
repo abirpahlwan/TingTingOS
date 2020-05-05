@@ -29,7 +29,7 @@ namespace TingTingOS.Utils
         {
             ColorConsole.WriteLine(ConsoleColor.Yellow, "TingTingOS booted successfully");
             ColorConsole.WriteLine(ConsoleColor.Yellow, "Press any key to continue...");
-            Console.ReadKey();
+            Console.ReadKey(true);
         }
     }
 }

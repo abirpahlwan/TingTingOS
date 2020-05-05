@@ -35,7 +35,7 @@ namespace TingTingOS.Programs
             Console.WriteLine();
 
             ColorConsole.Write(ConsoleColor.Yellow, "Press any key to restart...");
-            Console.ReadKey();
+            Console.ReadKey(true);
 
             Power.Restart();
         }
