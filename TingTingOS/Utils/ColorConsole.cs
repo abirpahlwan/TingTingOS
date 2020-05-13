@@ -19,5 +19,13 @@ namespace TingTingOS.Utils
             Console.Write(msg);
             Console.ForegroundColor = color;
         }
+
+        public static void Write(ConsoleColor c, char msg)
+        {
+            ConsoleColor color = Console.ForegroundColor;
+            Console.ForegroundColor = c;
+            Console.Write(msg);
+            Console.ForegroundColor = color;
+        }
     }
 }

@@ -2,7 +2,7 @@
 {
     public static class Reference
     {
-        public static string Version = "0.0.3";
+        public static string Version = "0.0.4";
 
         public static string RootPath = @"0:\";
         public static string CurrentDirectory = RootPath;
