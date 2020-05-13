@@ -15,6 +15,7 @@ namespace TingTingOS.Programs
             {
             Commands:
                 ColorConsole.Write(ConsoleColor.Green, Reference.UserAccount.GetUsername());
+                ColorConsole.Write(ConsoleColor.Green, "@TingTingOS");
                 ColorConsole.Write(ConsoleColor.White, ">");
                 ColorConsole.Write(ConsoleColor.Cyan, Reference.CurrentDirectory);
                 ColorConsole.Write(ConsoleColor.White, Reference.DefaultAccessPrefix);
@@ -115,7 +116,7 @@ namespace TingTingOS.Programs
                         break;
 
                     case "textpad":
-                        Textpad.Run(input.Split(" ")[1]);
+                        Textpad.Init(input.Split(" ")[1]);
 
                         break;
 
