@@ -120,6 +120,11 @@ namespace TingTingOS.Programs
 
                         break;
 
+                    case "snake":
+                        SnakeGame.Init();
+
+                        break;
+
                     case "cls":
                         Console.Clear();
 
