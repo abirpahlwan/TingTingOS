@@ -57,10 +57,12 @@ namespace TingTingOS.Programs
 
                     // Power
                     case "restart":
-
+                        Power.Restart();
+                        
                         break;
 
                     case "shutdown":
+                        Power.Shutdown();
 
                         break;
 
