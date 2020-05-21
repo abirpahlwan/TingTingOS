@@ -26,8 +26,47 @@ namespace TingTingOS.Programs
                 switch (command)
                 {
                     // TODO Refactor all the commands
+                    // Debug
+                    case "echo":
+                        ColorConsole.WriteLine(ConsoleColor.Yellow, input.Split(" ", 2)[1]);
+                        Console.WriteLine();
+
+                        break;
+
+                    case "memtest":
+                        MemoryManager.ShowMemoryUsage();
+
+                        break;
+
+                    // OS System
+                    case "now":
+                        ColorConsole.WriteLine(ConsoleColor.Yellow, DateTime.Now.ToString());
+                        Console.WriteLine();
+
+                        break;
+
+                    case "help":
+
+                        break;
+
+                    case "about":
+                        ColorConsole.WriteLine(ConsoleColor.Yellow, "TingTingOS v" + Reference.Version);
+                        Console.WriteLine();
+
+                        break;
+
+                    // Power
+                    case "restart":
+
+                        break;
+
+                    case "shutdown":
+
+                        break;
+
+                    // File System
                     case "cd":
-                        string newDirectory = input.Split(" ")[1];
+                        string newDirectory = input.Split(" ", 2)[1];
                         if (Directory.Exists(newDirectory))
                         {
                             if (newDirectory.Contains(Reference.RootPath))
@@ -62,17 +101,17 @@ namespace TingTingOS.Programs
                         break;
 
                     case "mkdir":
-                        Directory.CreateDirectory(input.Split(" ")[1]);
+                        Directory.CreateDirectory(input.Split(" ", 2)[1]);
 
                         break;
 
                     case "touch":
-                        File.Create(input.Split(" ")[1]);
+                        File.Create(input.Split(" ", 2)[1]);
 
                         break;
 
                     case "rm":
-                        string file = input.Split(" ")[1];
+                        string file = input.Split(" ", 2)[1];
                         if (File.Exists(file))
                         {
                             File.Delete(file);
@@ -85,7 +124,7 @@ namespace TingTingOS.Programs
                         break;
 
                     case "rmdir":
-                        string deleteDirectory = input.Split(" ")[1];
+                        string deleteDirectory = input.Split(" ", 2)[1];
                         if (Directory.Exists(deleteDirectory))
                         {
                             Directory.Delete(deleteDirectory, true);
@@ -115,8 +154,9 @@ namespace TingTingOS.Programs
 
                         break;
 
+                    // Programs
                     case "textpad":
-                        Textpad.Init(input.Split(" ")[1]);
+                        Textpad.Init(input.Split(" ", 2)[1]);
 
                         break;
 
@@ -125,6 +165,7 @@ namespace TingTingOS.Programs
 
                         break;
 
+                    // Misc
                     case "cls":
                         Console.Clear();
 
